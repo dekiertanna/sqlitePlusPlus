@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
+set(CMAKE_CXX_STANDARD 17)
 project(sqlitePlusPlus VERSION 0.0.1 DESCRIPTION "C++ wrapper for sqlite3 library")
 include(GNUInstallDirs)
 enable_testing()
@@ -8,7 +9,12 @@ find_package(GTest REQUIRED)
 include_directories(${SQLite3_INCLUDE_DIRS})
 
 # Add sqlitePlusPlus library target
-add_library(sqlitePlusPlus STATIC src/sqlitePP.cpp)
+add_library(sqlitePlusPlus STATIC
+    src/sqlitePP.cpp
+    src/DatabaseModel.hpp
+    src/DatabaseModel.cpp
+    src/SqliteTable.hpp
+    src/SqliteTable.cpp)
 set_target_properties(sqlitePlusPlus PROPERTIES
     VERSION ${PROJECT_VERSION}
     PUBLIC_HEADER include/sqlitePP.hpp)
