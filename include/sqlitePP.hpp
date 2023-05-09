@@ -4,18 +4,17 @@
 #include <memory>
 #include <string>
 
-class sqlitePlusPlus
-{
+class sqlitePlusPlus {
 public:
   using statement_ptr =
-    std::unique_ptr<sqlite3_stmt, decltype(&sqlite3_finalize)>;
+      std::unique_ptr<sqlite3_stmt, decltype(&sqlite3_finalize)>;
 
-  sqlitePlusPlus(const std::string& filename);
+  sqlitePlusPlus(const std::string &filename);
   ~sqlitePlusPlus();
 
-  void exec(const std::string& sql);
-  statement_ptr prepare(const std::string& sql);
+  void exec(const std::string &sql);
+  statement_ptr prepare(const std::string &sql);
 
 private:
-  sqlite3* db_;
+  sqlite3 *db_;
 };

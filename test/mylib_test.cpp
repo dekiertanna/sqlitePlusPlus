@@ -3,8 +3,7 @@
 
 #include "sqlitePP.hpp"
 
-TEST(SQLitePPTest, SimpleTest)
-{
+TEST(SQLitePPTest, SimpleTest) {
   // Create an instance of the sqlitePlusPlus class
   sqlitePlusPlus db(":memory:");
 
@@ -12,5 +11,5 @@ TEST(SQLitePPTest, SimpleTest)
 
   // Execute a simple SQL statement
   EXPECT_NO_THROW(
-    db.exec("CREATE TABLE test (id INTEGER PRIMARY KEY, name TEXT)"));
+      db.exec("CREATE TABLE test (id INTEGER PRIMARY KEY, name TEXT)"));
 }
