@@ -8,7 +8,7 @@
 
 class DatabaseModel {
 public:
-  std::optional<SqliteTable> createTable(const std::string& tableName);
+  bool createTable(const std::string& tableName);
 
 private:
   std::unordered_set<SqliteTable> tables_;

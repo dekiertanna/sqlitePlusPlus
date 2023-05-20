@@ -6,7 +6,8 @@ project(sqlitePlusPlusTest)
 # Add the test executable
 add_executable(ut-run test_main.cpp 
 mylib_test.cpp
-UTDatabaseModel.cpp)
+UTDatabaseModel.cpp
+UTSqliteTable.cpp)
 
 target_include_directories(ut-run PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../src)
 

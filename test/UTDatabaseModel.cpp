@@ -6,11 +6,11 @@ TEST(UTDatabaseModel, ShoildInitialize) { DatabaseModel(); }
 
 TEST(UTDatabaseModel, ShouldCreateTable) {
   DatabaseModel dbModel = DatabaseModel();
-  ASSERT_NE(dbModel.createTable("Person"), std::nullopt);
+  ASSERT_TRUE(dbModel.createTable("Person"));
 }
 
-TEST(UTDatabaseModel, ShouldReturnNulloptOnInsertingDuplicate) {
+TEST(UTDatabaseModel, ShouldReturnFalseOnInsertingDuplicate) {
   DatabaseModel dbModel = DatabaseModel();
-  ASSERT_NE(dbModel.createTable("Person"), std::nullopt);
-  ASSERT_EQ(dbModel.createTable("Person"), std::nullopt);
+  ASSERT_TRUE(dbModel.createTable("Person"));
+  ASSERT_FALSE(dbModel.createTable("Person"));
 }
